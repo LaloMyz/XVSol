@@ -1,0 +1,273 @@
+/* Fuentes personalizadas */
+@font-face {
+    font-family: 'CalifornianFB';
+    src: url('fonts/CalifornianFB.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'EdwardianScript';
+    src: url('fonts/EdwardianScriptITC.ttf') format('truetype');
+    font-display: swap;
+}
+
+/* Reset y estilos base */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Dancing Script', cursive;
+}
+
+/* Contenedor principal */
+.carousel-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Carousel */
+.carousel {
+  display: flex;
+  width: calc(100vw * 6);
+  height: 100vh;
+  transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide {
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  opacity: 0.3;
+  transform: scale(0.95);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.slide img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  transition: transform 0.6s ease, opacity 0.3s ease;
+}
+
+.slide img:hover {
+  transform: scale(1.02);
+}
+
+/* Loading placeholder */
+.slide.loading::before {
+  content: "Cargando...";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.5rem;
+  font-family: 'Dancing Script', cursive;
+}
+
+/* Navegación */
+button.prev,
+button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255,255,255,0.3);
+  color: #fff;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 1.8rem;
+  z-index: 10;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button.prev:hover,
+button.next:hover {
+  background: rgba(255,255,255,0.3);
+  transform: translateY(-50%) scale(1.1);
+}
+
+button.prev { 
+  left: 20px; 
+}
+
+button.next { 
+  right: 20px; 
+}
+
+/* Indicadores */
+.indicators {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 15px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: #fff;
+  transform: scale(1.3);
+}
+
+/* Control de audio */
+.audio-control {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.audio-control:hover {
+  background: rgba(255,255,255,0.3);
+  transform: scale(1.1);
+}
+
+/* Efectos de partículas */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(255,255,255,0.6);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+    opacity: 1; 
+  }
+  50% { 
+    transform: translateY(-20px) rotate(180deg); 
+    opacity: 0.5; 
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  button.prev, button.next {
+    width: 50px;
+    height: 50px;
+    font-size: 1.4rem;
+    padding: 10px;
+  }
+  
+  button.prev { 
+    left: 10px; 
+  }
+  
+  button.next { 
+    right: 10px; 
+  }
+  
+  .indicators { 
+    bottom: 20px; 
+    gap: 10px; 
+  }
+  
+  .indicator { 
+    width: 10px; 
+    height: 10px; 
+  }
+  
+  .audio-control { 
+    width: 45px; 
+    height: 45px; 
+    font-size: 1rem; 
+  }
+}
+
+/* Mensaje de error */
+.error-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  background: rgba(0,0,0,0.7);
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+}
+
+.slide-button {
+  position: absolute;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+
+  /* Quitar texto visible */
+  color: transparent;
+  font-size: 0;
+
+  cursor: pointer;
+}
+.boton-iglesia{
+  top: 0;
+  left: 0;
+  width: 100%;        /* ancho total de la ventana */
+  height: 50%;        /* mitad de la altura de la ventana */
+}
+.boton-salon{
+top: 50%;
+  left: 0;
+  width: 100%;        /* ancho total de la ventana */
+  height: 50%;        /* mitad de la altura de la ventana */
+}

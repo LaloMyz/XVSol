@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invitación XV Abby Solash</title>
+  
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
+  
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="carousel-container">
+    <!-- Partículas decorativas -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Carousel -->
+    <div class="carousel" id="carousel">
+      <div class="slide loading active" data-img="imagenes/portada.png">
+        <img src="imagenes/portada.png" alt="Portada" style="display: none;">
+      </div>
+      <div class="slide loading" data-img="imagenes/padres.png">
+        <img src="imagenes/padres.png" alt="Padres" style="display: none;">
+      </div>
+      <div class="slide loading" data-img="imagenes/fecha.png">
+        <img src="imagenes/fecha.png" alt="Fecha" style="display: none;">
+        <a href="https://maps.app.goo.gl/bn5Ci98evzJye2Aa6" target="_blank" class="slide-button boton-iglesia"></a>
+        <a href="https://maps.app.goo.gl/f5E189crR3Dd3LQy8" target="_blank" class="slide-button boton-salon"></a>
+      </div>
+      <div class="slide loading" data-img="imagenes/programa.png">
+        <img src="imagenes/programa.png" alt="Programa" style="display: none;">
+      </div>
+      <div class="slide loading" data-img="imagenes/regalos.png">
+        
+        <a href="https://wa.me/528712769900" target="_blank"><img src="imagenes/regalos.png" alt="Regalos" style="display: none;"></a>
+      </div>
+      <div class="slide loading" data-img="imagenes/cierre.png">
+        <img src="imagenes/cierre.png" alt="Cierre" style="display: none;">
+      </div>
+    </div>
+
+    <!-- Navegación -->
+    <button class="prev" id="prevBtn">‹</button>
+    <button class="next" id="nextBtn">›</button>
+
+    <!-- Indicadores -->
+    <div class="indicators" id="indicators"></div>
+
+    <!-- Control de audio -->
+    <button class="audio-control" id="audioControl">🔊</button>
+  </div>
+
+  <!-- Audio -->
+  <audio id="bg-music" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+    <source src="musica.ogg" type="audio/ogg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
